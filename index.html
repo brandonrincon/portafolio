@@ -73,17 +73,16 @@
         </div>
       </header>
       <section>
-        <section class="personal">
-            <h2>Comprometidos con tus ideas y proyectos</h2>
-          </section>
-        <section class="about row justify-content-between" id="informacion">
-          <img class="col-xl-4 col-md-5 col-sm-12 image-responsive" src="img/creasoftteam.png" alt="Creasoft Team">
-          <div class="col-xl-5 col-md-5 xl-offset-1 md-offset-2 col-sm-12">
-                <h1 class="creasoft-title"><b>Creasoft Team</b></h1>
-                <br><br>
-                <p class="text-medium">Somos una compañía especializada en la ideación, desarrollo, publicación y comercialización de ideas tecnológicas de todo tipo.</p> 
+        <section class="about" id="informacion">
+          <div class="container text-center">
+              <div class="row">
+              <h1 class="creasoft-title col"><b>Creasoft Team</b></h1>
+                <br>
+                <p class="text-medium">Somos una compañía especializada en la ideación, desarrollo, publicación y comercialización de ideas tecnológicas de todo tipo. Contamos con una amplia variedad de profesionales apasionados en su trabajo, abiertos y dispuestos a compañarte.</p>
+              </div>
           </div>
         </section>
+    
         <section class="tecnologia">
           <div class="tec">
             <h1>Múltiples tecnologías</h1>
@@ -97,8 +96,52 @@
               <a href="#" data-toggle="tooltip" title="Aplicaciones Basadas en Java" data-placement="bottom"><img class="img-galeria" src="img/tecnologias/java.jpg" alt="Applets Java y Android"></a>
               <a href="#" data-toggle="tooltip" title="Backend Web eficaz y escalable" data-placement="bottom"><img class="img-galeria" src="img/tecnologias/django.png" alt="Desarollo Django Python"></a>
           </div>
+            <h1 class="text-center texto-azul">Líneas de Negocio</h1><br><br>
           </section>
-        <section class="contacto  containerrow">
+        <section class="slider">
+            <img class="img-responsive" src="img/web-creasoft.jpg" alt="Desarrollo Web">
+            <img class="img-responsive" src="img/movil-creasoft.jpg" alt="Desarrollo Movil">
+            <img class="img-responsive" src="img/videojuegos-creasoft.jpg" alt="Video Juegos Unity">
+            <img class="img-responsive" src="img/soporte-creasoft.jpg" alt="Soporte Técnico">
+        </section>
+            <section class="valores">
+         <div class="container">
+             <div class="confiar row">
+                <h2 class="col-12 text-center texto-azul">¿Por qué confiar en nosotros?</h2>
+                <p class="col-12">La confianza de nuestros clientes es un compromiso inquebrantable por ende entregar a tiempo no es opcional, acompañar a nuestros clientes es fundamental y su experiencia de usuario con nuestro servicio debe ser el mejor. </p>
+             </div>
+             <div class="row my-5">
+                 <div class="col-xs-12 col-md-4">
+                     <div class="card">
+                         <i class="material-icons">code</i>
+                         <h4 class="text-center texto-azul">DESARROLLO</h4>
+                         <article class="text-medium">
+                             Damos utilidad a nuevas tecnologías las cuales se enfocan en mejorar la experiencia de usuario y así mismo un funcionamiento eficiente.
+                         </article>
+                     </div>
+                 </div>
+                 <div class="col-xs-12 col-md-4">
+                     <div class="card">
+                         <i class="material-icons">timer</i>
+                         <h4 class="text-center texto-azul">ENTREGAS A TIEMPO</h4>
+                         <article class="text-medium">
+                             Los tiempos establecidos con el cliente para la entrega de un proyecto son los parámetros a los cuales nos sujetamos y es nuestro compromiso llevar a cabo su cumplimiento.
+                         </article>
+                     </div>
+                 </div>
+                 <div class="col-xs-12 col-md-4">
+                     <div class="card">
+                         <i class="material-icons">polymer</i>
+                         <h4 class="text-center texto-azul">SOPORTE</h4>
+                         <article class="text-medium">
+                            Ofrecemos el acompañamiento continuo para dar asistencia a las necesidades que requieran los proyectos en su funcionamiento.
+                         </article>
+                     </div>
+                 </div>   
+             </div>
+         </div>
+        </section>  
+        <section class="contacto">
           <div class="row">
               <div class="col-md-7 col-xs-12 formulario">
                   <form>
@@ -130,7 +173,26 @@
           <h4 class="text-center text-white">
           asesoria@creasoftteam.com<br>3227272148<br><br> Creasoft Team S.A.S , 2018<br>
           </h4>
-      </footer> 
+      </footer>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Desarrollo Web</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>    
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>    
     <script type="text/javascript" src="js/bootstrap.min.js"></script>

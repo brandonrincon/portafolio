@@ -103,5 +103,23 @@ $(document).ready(function(){
             
         });
     });
+    $('.card i').each(function(indice,elemento){
+        
+        $(this).hover(function(){
+           $(this).animateCss('bounce');
+           
+        },function(){
+            
+        });
+    });
+     $('.card').each(function(indice,elemento){
+        
+        $(this).hover(function(){
+           $(this).animateCss('bounce');
+           
+        },function(){
+            
+        });
+    });
 });
     
