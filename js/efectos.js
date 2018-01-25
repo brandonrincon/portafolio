@@ -17,7 +17,7 @@ $(document).ready(function(){
     },1100);
 // Desplazamiento
     var informacion,tecnologia,contacto;
-    informacion=$('.personal').offset().top;
+    informacion=$('.about').offset().top;
     tecnologia=$('.tecnologia').offset().top;
     contacto=$('.contacto').offset().top;
     
