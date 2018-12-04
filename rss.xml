@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator-->
+<rss version="2.0">
+  <channel>
+    <title>Partial Content</title>
+    <link>http://brandonrincon.info</link>
+    <description />
+    <item>
+      <guid>http://brandonrincon.info/cgi-sys/defaultwebpage.cgi</guid>
+      <title>Default Web Site Page</title>
+      <link>http://brandonrincon.info/cgi-sys/defaultwebpage.cgi</link>
+      <description />
+    </item>
+    <item>
+      <guid>http://brandonrincon.info/</guid>
+      <title>Partial Content</title>
+      <link>http://brandonrincon.info/</link>
+      <description />
+    </item>
+  </channel>
+</rss>
+<!--<guid value="" />-->
+<!--Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator-->
