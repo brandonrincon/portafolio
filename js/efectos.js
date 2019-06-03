@@ -19,7 +19,8 @@ $(document).ready(function(){
     var informacion,tecnologia,contacto;
     informacion=$('.about').offset().top;
     tecnologia=$('.tecnologia').offset().top;
-    contacto=$('.contacto').offset().top;
+    contacto=$('#portafolio').offset().top;
+    console.log("top",contacto);
     
     function dezplazar(top){
         $('html, body').animate({
@@ -42,7 +43,7 @@ $(document).ready(function(){
     $('#contacto').on('click',function(e){
         e.preventDefault();
         dezplazar(contacto);
-        $('.contacto').animateCss('pulse'); 
+        $('#portafolio').animateCss('pulse');
     });
 // Navbar
     function animarBar(color){
