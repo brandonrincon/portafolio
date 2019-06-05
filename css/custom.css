@@ -313,3 +313,12 @@ footer{
 .proyectos-container a{
     margin-top: 50px;
 }
+.btn-cur{
+    background-color: #003399 !important;
+    color: white;
+}
+.btn-cur:hover{
+    color: white !important;
+    background-color: #2464e4 !important;
+    font-size: 1.2rem;
+}
