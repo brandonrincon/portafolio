@@ -9,7 +9,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -71,7 +71,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/Proyectos/Personal/demo" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -99,6 +99,7 @@
       <workItem from="1559496435184" duration="233000" />
       <workItem from="1559496909003" duration="7457000" />
       <workItem from="1559517382276" duration="9330000" />
+      <workItem from="1560352024518" duration="68000" />
     </task>
     <task id="LOCAL-00001" summary="sitemap">
       <created>1543945172518</created>
@@ -111,12 +112,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19055000" />
+    <option name="totallyTimeSpent" value="19123000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12100213" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.122068234" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -161,21 +162,15 @@
     <entry file="file://$PROJECT_DIR$/img/3.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/img/10.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/4.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/img/10.png" />
+    <entry file="file://$PROJECT_DIR$/img/4.png" />
     <entry file="file://$PROJECT_DIR$/img/2.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/img/1.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/img/5.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/img/5.png" />
     <entry file="file://$PROJECT_DIR$/img/9.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
