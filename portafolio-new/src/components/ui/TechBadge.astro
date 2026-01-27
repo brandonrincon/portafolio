@@ -1,0 +1,38 @@
+---
+interface Props {
+  name: string;
+  icon?: string;
+  color?: string;
+}
+
+const { name, icon, color } = Astro.props;
+const iconUrl = icon ? `https://cdn.simpleicons.org/${icon}/${color?.replace('#', '') || '000000'}` : undefined;
+---
+
+<div
+  class="tech-badge flex items-center gap-2 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 transition-all hover:scale-105"
+  style={color ? `--accent-color: ${color}` : undefined}
+  data-has-color={color ? "true" : undefined}
+>
+  {iconUrl && <img src={iconUrl} alt={name} class="h-4 w-4 object-contain" loading="lazy" />}
+  <span>{name}</span>
+</div>
+
+<style>
+  .tech-badge[data-has-color]:hover {
+    border-color: var(--accent-color);
+    background-color: color-mix(in srgb, var(--accent-color) 10%, transparent);
+  }
+
+  .tech-badge:not([data-has-color]):hover {
+    border-color: var(--color-primary-300);
+    background-color: var(--color-primary-50);
+    color: var(--color-primary-700);
+  }
+
+  :global(.dark) .tech-badge:not([data-has-color]):hover {
+    border-color: var(--color-primary-700);
+    background-color: color-mix(in srgb, var(--color-primary-950) 30%, transparent);
+    color: var(--color-primary-400);
+  }
+</style>

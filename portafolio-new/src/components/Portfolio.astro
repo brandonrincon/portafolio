@@ -1,0 +1,152 @@
+---
+import { type Lang, defaultLang } from "../i18n/translations";
+import { useTranslations } from "../i18n/utils";
+import AnimatedSection from "./ui/AnimatedSection";
+import ProjectCard from "./ui/ProjectCard";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const t = useTranslations(lang);
+
+const projects = [
+  { src: "/portafolio/img/proyectos/sr7.png", alt: "Proyecto SR7" },
+  { src: "/portafolio/img/proyectos/sr8.png", alt: "Proyecto SR8" },
+  { src: "/portafolio/img/proyectos/sr9.png", alt: "Proyecto SR9" },
+  { src: "/portafolio/img/proyectos/sr1.png", alt: "Proyecto SR1" },
+  { src: "/portafolio/img/proyectos/sr2.png", alt: "Proyecto SR2" },
+  { src: "/portafolio/img/proyectos/sr3.png", alt: "Proyecto SR3" },
+  { src: "/portafolio/img/2.jpg", alt: "Proyecto 2" },
+  { src: "/portafolio/img/proyectos/sr4.png", alt: "Proyecto SR4" },
+  { src: "/portafolio/img/proyectos/sr5.png", alt: "Proyecto SR5" },
+  { src: "/portafolio/img/proyectos/brandonrincon6.png", alt: "Proyecto Brandon Rincon 6" },
+  { src: "/portafolio/img/proyectos/brandonrincon5.png", alt: "Proyecto Brandon Rincon 5" },
+  { src: "/portafolio/img/proyectos/brandonrincon1.png", alt: "Proyecto Brandon Rincon 1" },
+  { src: "/portafolio/img/proyectos/brandonrincon2.png", alt: "Proyecto Brandon Rincon 2" },
+  { src: "/portafolio/img/proyectos/brandonrincon3.png", alt: "Proyecto Brandon Rincon 3" },
+  { src: "/portafolio/img/proyectos/brandonrincon4.jpg", alt: "Proyecto Brandon Rincon 4" },
+  { src: "/portafolio/img/proyectos/cl1.jpg", alt: "Proyecto CL1" },
+];
+
+const businessLines = [
+  { src: "/portafolio/img/web-creasoft.jpg", alt: "Desarrollo Web" },
+  { src: "/portafolio/img/movil-creasoft.jpg", alt: "Desarrollo Movil" },
+  { src: "/portafolio/img/videojuegos-creasoft.jpg", alt: "Videojuegos Unity" },
+  { src: "/portafolio/img/soporte-creasoft.jpg", alt: "Soporte Tecnico" },
+];
+---
+
+<section id="portfolio" class="bg-gray-50 dark:bg-gray-900 px-4 sm:px-6 py-16 sm:py-20 md:py-24 lg:py-32">
+  <div class="mx-auto max-w-6xl">
+    <AnimatedSection client:load>
+      <div class="mb-10 sm:mb-12 md:mb-16 text-center">
+        <p
+          class="mb-4 text-sm font-medium tracking-wider text-primary-600 dark:text-primary-400 uppercase"
+        >
+          {t("portfolio.subtitle")}
+        </p>
+        <h2 class="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
+          {t("portfolio.title")}
+        </h2>
+        <p class="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+          {t("portfolio.description")}
+        </p>
+      </div>
+    </AnimatedSection>
+
+    <AnimatedSection client:load delay={0.1}>
+      <h3 class="mb-6 sm:mb-8 text-center text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
+        {t("portfolio.business")}
+      </h3>
+      <div class="mb-10 sm:mb-12 md:mb-16 grid gap-3 sm:gap-4 grid-cols-2 lg:grid-cols-4">
+        {
+          businessLines.map((item, index) => (
+            <ProjectCard
+              client:visible
+              src={item.src}
+              alt={item.alt}
+              index={index}
+            />
+          ))
+        }
+      </div>
+    </AnimatedSection>
+
+    <AnimatedSection client:load delay={0.2}>
+      <h3 class="mb-6 sm:mb-8 text-center text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
+        {t("portfolio.projects")}
+      </h3>
+      <div class="grid gap-3 sm:gap-4 grid-cols-2 lg:grid-cols-3">
+        {
+          projects.map((project, index) => (
+            <ProjectCard
+              client:visible
+              src={project.src}
+              alt={project.alt}
+              index={index}
+            />
+          ))
+        }
+      </div>
+    </AnimatedSection>
+
+    <AnimatedSection client:load delay={0.3}>
+      <div class="mt-10 sm:mt-12 md:mt-16 text-center">
+        <h3 class="mb-4 sm:mb-6 text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
+          {t("portfolio.media")}
+        </h3>
+        <div class="grid gap-3 sm:gap-4 md:gap-6 md:grid-cols-2">
+          <div class="aspect-video overflow-hidden rounded-xl bg-gray-900">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube-nocookie.com/embed/OToTbcdS7ZA?start=65"
+              title="Video Reference"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+          <a
+            href="http://laud.udistrital.edu.co/noticias/colegio-miguel-%C3%A1ngel-asturias-en-la-universidad-distrital"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex aspect-video items-center justify-center overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 transition-all hover:bg-gray-200 dark:hover:bg-gray-700"
+          >
+            <img
+              src="/portafolio/img/distrital.png"
+              alt="Universidad Distrital Entrevista"
+              class="max-h-full max-w-full object-contain p-6 transition-transform group-hover:scale-105"
+            />
+          </a>
+        </div>
+      </div>
+    </AnimatedSection>
+
+    <div class="mt-12 text-center">
+      <a
+        href="https://drive.google.com/open?id=0B2KBM1BZ0JDyZ2JyTndfRUw1U0U"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-full bg-primary-600 dark:bg-primary-500 px-6 py-3 text-sm font-medium text-white transition-all hover:bg-primary-700 dark:hover:bg-primary-600 hover:scale-105"
+      >
+        {t("portfolio.more")}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+          ></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

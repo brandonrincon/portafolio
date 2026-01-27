@@ -1,0 +1,111 @@
+---
+import { languages, type Lang } from "../../i18n/translations";
+import { getLocalizedPath } from "../../i18n/utils";
+
+interface Props {
+  currentLang: Lang;
+  class?: string;
+}
+
+const { currentLang, class: className } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<div class:list={["relative", className]} id="lang-selector-container">
+  <button
+    id="lang-selector-btn"
+    type="button"
+    class="flex h-10 items-center gap-2 rounded-lg px-3 transition-colors bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700"
+    aria-label="Select language"
+    aria-expanded="false"
+  >
+    <svg
+      class="h-4 w-4"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+      ></path>
+    </svg>
+    <span class="text-sm font-medium uppercase">{currentLang}</span>
+    <svg
+      class="h-4 w-4 transition-transform duration-200"
+      id="lang-chevron"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+
+  <div
+    id="lang-dropdown"
+    class="absolute right-0 top-full z-50 mt-2 hidden min-w-[120px] overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800"
+  >
+    {
+      Object.entries(languages).map(([lang, label]) => (
+        <a
+          href={getLocalizedPath(currentPath, lang as Lang)}
+          class:list={[
+            "flex items-center gap-2 px-4 py-2 text-sm transition-colors",
+            lang === currentLang
+              ? "bg-primary-50 text-primary-600 dark:bg-primary-900/20 dark:text-primary-400"
+              : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700",
+          ]}
+        >
+          {lang === currentLang && (
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          )}
+          <span class={lang !== currentLang ? "ml-6" : ""}>{label}</span>
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  const btn = document.getElementById("lang-selector-btn");
+  const dropdown = document.getElementById("lang-dropdown");
+  const chevron = document.getElementById("lang-chevron");
+  const container = document.getElementById("lang-selector-container");
+
+  function toggleDropdown(show?: boolean) {
+    const isOpen = show ?? dropdown?.classList.contains("hidden");
+    dropdown?.classList.toggle("hidden", !isOpen);
+    chevron?.style.setProperty("transform", isOpen ? "rotate(180deg)" : "");
+    btn?.setAttribute("aria-expanded", String(isOpen));
+  }
+
+  btn?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleDropdown();
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!container?.contains(e.target as Node)) {
+      toggleDropdown(false);
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      toggleDropdown(false);
+    }
+  });
+</script>

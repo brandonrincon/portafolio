@@ -1,0 +1,25 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Hero from "../../components/Hero.astro";
+import About from "../../components/About.astro";
+import Portfolio from "../../components/Portfolio.astro";
+import Contact from "../../components/Contact.astro";
+import type { Lang } from "../../i18n/translations";
+
+const lang: Lang = "en";
+---
+
+<Layout
+  lang={lang}
+  title="Brandon Steven Rincon Gutierrez | Systems Engineer"
+  description="Application developer, websites, video games, augmented reality, and technology-based innovative ideas."
+>
+  <Header lang={lang} />
+  <main>
+    <Hero lang={lang} />
+    <About lang={lang} />
+    <Portfolio lang={lang} />
+    <Contact lang={lang} />
+  </main>
+</Layout>

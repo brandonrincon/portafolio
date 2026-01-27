@@ -1,0 +1,232 @@
+---
+import "../styles/global.css";
+import { type Lang, defaultLang } from "../i18n/translations";
+import DotBackground from "../components/ui/DotBackground";
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: Lang;
+}
+
+// SEO optimized defaults based on Google Trends for "desarrollador fullstack"
+const seoDefaults = {
+  es: {
+    title: "Brandon Rincon | Desarrollador Full Stack - React, Node.js, Python, AWS",
+    description: "Desarrollador Full Stack en Bogotá, Colombia. Experto en React, Angular, Node.js, Python, Laravel, AWS y desarrollo de aplicaciones web y móviles. +54 proyectos entregados.",
+  },
+  en: {
+    title: "Brandon Rincon | Full Stack Developer - React, Node.js, Python, AWS",
+    description: "Full Stack Developer in Bogotá, Colombia. Expert in React, Angular, Node.js, Python, Laravel, AWS and web & mobile app development. 54+ projects delivered.",
+  },
+};
+
+const {
+  title = seoDefaults[lang]?.title || seoDefaults.es.title,
+  description = seoDefaults[lang]?.description || seoDefaults.es.description,
+  lang = defaultLang,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL("/portafolio/img/org-creasoft.jpg", Astro.site);
+---
+
+<!doctype html>
+<html lang={lang} class="no-transitions">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/portafolio/img/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Theme initialization (prevent flash) -->
+    <script is:inline>
+      (function () {
+        const theme = localStorage.getItem("theme") ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+        // Remove no-transitions class after page load
+        window.addEventListener("load", function () {
+          document.documentElement.classList.remove("no-transitions");
+        });
+      })();
+    </script>
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Brandon Steven Rincon Gutierrez" />
+    <meta
+      name="keywords"
+      content={lang === "es"
+        ? "desarrollador full stack, full stack developer, programador web, desarrollador react, desarrollador node.js, desarrollador python, desarrollador javascript, desarrollo web bogota, desarrollador freelance colombia, aplicaciones moviles, desarrollo software, Brandon Rincon, AWS developer, angular developer, laravel developer"
+        : "full stack developer, web developer, react developer, node.js developer, python developer, javascript developer, web development bogota, freelance developer colombia, mobile apps, software development, Brandon Rincon, AWS developer, angular developer, laravel developer"
+      }
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta
+      name="google-site-verification"
+      content="jQ3qJAOYcs99O3xDUWZYf2MuSZAebEoT6p_vShA5xRQ"
+    />
+
+    <!-- Alternate language links -->
+    <link rel="alternate" hreflang="es" href={new URL("/portafolio/", Astro.site)} />
+    <link rel="alternate" hreflang="en" href={new URL("/portafolio/en/", Astro.site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL("/portafolio/", Astro.site)} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="Brandon Rincon Gutierrez" />
+    <meta property="og:locale" content={lang === "es" ? "es_CO" : "en_US"} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+  </head>
+  <body class="antialiased bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
+    <DotBackground client:load />
+    <div class="relative z-10">
+      <slot />
+    </div>
+
+    <!-- Schema.org - Person -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://brandonrincon.github.io/portafolio/#person",
+      "name": "Brandon Steven Rincon Gutierrez",
+      "givenName": "Brandon Steven",
+      "familyName": "Rincon Gutierrez",
+      "jobTitle": "Full Stack Developer",
+      "description": lang === "es"
+        ? "Desarrollador Full Stack especializado en React, Node.js, Python, AWS y desarrollo de aplicaciones web y móviles"
+        : "Full Stack Developer specialized in React, Node.js, Python, AWS and web & mobile app development",
+      "url": "https://brandonrincon.github.io/portafolio/",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://brandonrincon.github.io/portafolio/img/org-creasoft.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "email": "brandon.rincong@gmail.com",
+      "telephone": "+573227272148",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bogota",
+        "addressCountry": "CO"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Universidad de los Andes",
+        "url": "https://uniandes.edu.co/"
+      },
+      "knowsAbout": [
+        "TypeScript", "JavaScript", "Python", "Java", "Dart", "C#", "C++", "PHP", "Rust", "Go",
+        "React", "Angular", "Next.js", "Laravel", "Flutter", "Spring", "TailwindCSS",
+        "AWS", "Azure", "Google Cloud", "Firebase", "Docker", "Kubernetes",
+        "MongoDB", "MySQL", "PostgreSQL", "Redis", "ClickHouse",
+        "TensorFlow", "PyTorch", "Unity"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/bsrincon",
+        "https://github.com/brandonrincon"
+      ]
+    })} />
+
+    <!-- Schema.org - WebSite -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://brandonrincon.github.io/portafolio/#website",
+      "url": "https://brandonrincon.github.io/portafolio/",
+      "name": "Brandon Rincon - Portfolio",
+      "description": description,
+      "publisher": {
+        "@id": "https://brandonrincon.github.io/portafolio/#person"
+      },
+      "inLanguage": ["es", "en"]
+    })} />
+
+    <!-- Schema.org - WebPage -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "@id": canonicalURL.toString(),
+      "url": canonicalURL.toString(),
+      "name": title,
+      "description": description,
+      "isPartOf": {
+        "@id": "https://brandonrincon.github.io/portafolio/#website"
+      },
+      "about": {
+        "@id": "https://brandonrincon.github.io/portafolio/#person"
+      },
+      "mainEntity": {
+        "@id": "https://brandonrincon.github.io/portafolio/#person"
+      },
+      "inLanguage": lang
+    })} />
+
+    <!-- Schema.org - Professional Service -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Brandon Rincon - Software Development",
+      "description": lang === "es"
+        ? "Servicios de desarrollo de software: aplicaciones web, móviles, videojuegos y soluciones cloud"
+        : "Software development services: web applications, mobile apps, video games and cloud solutions",
+      "url": "https://brandonrincon.github.io/portafolio/",
+      "provider": {
+        "@id": "https://brandonrincon.github.io/portafolio/#person"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": lang === "es" ? "Servicios de Desarrollo" : "Development Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": lang === "es" ? "Desarrollo Web" : "Web Development"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": lang === "es" ? "Desarrollo Móvil" : "Mobile Development"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": lang === "es" ? "Desarrollo de Videojuegos" : "Game Development"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": lang === "es" ? "Soluciones Cloud" : "Cloud Solutions"
+            }
+          }
+        ]
+      }
+    })} />
+  </body>
+</html>
