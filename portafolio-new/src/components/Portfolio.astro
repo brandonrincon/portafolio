@@ -8,7 +8,7 @@ interface Props {
   lang?: Lang;
 }
 
-const { lang = defaultLang } = Astro.props;
+const lang = Astro.props.lang ?? defaultLang;
 const t = useTranslations(lang);
 
 const projects = [
