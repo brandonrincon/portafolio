@@ -11,7 +11,7 @@ export const translations = {
   es: {
     // Navigation
     "nav.about": "Sobre mí",
-    "nav.portfolio": "Portafolio",
+    "nav.experience": "Experiencia",
     "nav.contact": "Contacto",
 
     // Hero
@@ -39,15 +39,12 @@ export const translations = {
       "Acompañamiento continuo para asistir las necesidades de escalamiento de proyectos.",
     "about.technologies": "Tecnologías",
 
-    // Portfolio
-    "portfolio.subtitle": "Mi Trabajo",
-    "portfolio.title": "Portafolio",
-    "portfolio.description":
-      "Una selección de proyectos en los que he trabajado, desde aplicaciones móviles hasta videojuegos y plataformas web.",
-    "portfolio.business": "Líneas de Negocio",
-    "portfolio.projects": "Proyectos",
-    "portfolio.media": "Referencias en Medios",
-    "portfolio.more": "Ver más proyectos",
+    // Experience
+    "experience.subtitle": "Experiencia",
+    "experience.title": "Experiencia Profesional",
+    "experience.description":
+      "Mi trayectoria profesional en desarrollo de software, liderando equipos y construyendo soluciones tecnológicas.",
+    "experience.media": "Referencias en Medios",
 
     // Contact
     "contact.subtitle": "Contacto",
@@ -67,7 +64,7 @@ export const translations = {
   en: {
     // Navigation
     "nav.about": "About",
-    "nav.portfolio": "Portfolio",
+    "nav.experience": "Experience",
     "nav.contact": "Contact",
 
     // Hero
@@ -95,15 +92,12 @@ export const translations = {
       "Continuous accompaniment to assist the scaling needs of projects.",
     "about.technologies": "Technologies",
 
-    // Portfolio
-    "portfolio.subtitle": "My Work",
-    "portfolio.title": "Portfolio",
-    "portfolio.description":
-      "A selection of projects I have worked on, from mobile applications to video games and web platforms.",
-    "portfolio.business": "Business Lines",
-    "portfolio.projects": "Projects",
-    "portfolio.media": "Media References",
-    "portfolio.more": "View more projects",
+    // Experience
+    "experience.subtitle": "Experience",
+    "experience.title": "Professional Experience",
+    "experience.description":
+      "My professional journey in software development, leading teams and building technology solutions.",
+    "experience.media": "Media References",
 
     // Contact
     "contact.subtitle": "Contact",

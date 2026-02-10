@@ -1,0 +1,149 @@
+---
+import { type Lang, defaultLang } from "../i18n/translations";
+import { useTranslations } from "../i18n/utils";
+import AnimatedSection from "./ui/AnimatedSection";
+import ExperienceCard from "./ui/ExperienceCard";
+
+interface Props {
+  lang?: Lang;
+}
+
+const lang = Astro.props.lang ?? defaultLang;
+const t = useTranslations(lang);
+
+const experiences = [
+  {
+    company: "Kovah",
+    initial: "K",
+    color: "#3b82f6",
+    role: { es: "Full Stack Engineer", en: "Full Stack Engineer" },
+    type: { es: "Remoto · Tiempo Completo", en: "Remote · Full-Time" },
+    period: { es: "Oct 2024 - Feb 2026", en: "Oct 2024 - Feb 2026" },
+    duration: { es: "1 año 5 meses", en: "1 year 5 months" },
+    location: "Seattle, WA, USA",
+    tags: ["React", "Laravel", "PostgreSQL", "ClickHouse", "Docker", "OpenAI"],
+  },
+  {
+    company: "Keos.co",
+    initial: "K",
+    color: "#10b981",
+    role: { es: "Especialista en Desarrollo", en: "Development Specialist" },
+    type: { es: "Tiempo Completo", en: "Full-Time" },
+    period: { es: "Oct 2022 - Jun 2024", en: "Oct 2022 - Jun 2024" },
+    duration: { es: "1 año 9 meses", en: "1 year 9 months" },
+    tags: ["CI/CD", "ETL", "Web Services", "Open Source"],
+  },
+  {
+    company: "App Colombia",
+    initial: "A",
+    color: "#f97316",
+    role: { es: "Full Stack Engineer", en: "Full Stack Engineer" },
+    type: { es: "Tiempo Completo", en: "Full-Time" },
+    period: { es: "Ene 2018 - Ene 2023", en: "Jan 2018 - Jan 2023" },
+    duration: { es: "5 años 1 mes", en: "5 years 1 month" },
+    tags: ["Ionic", "React Native", "Flutter", "PWA", "REST API"],
+  },
+  {
+    company: "Grupo Editorial Educar",
+    initial: "E",
+    color: "#8b5cf6",
+    role: { es: "Jefe de Innovación Tecnológica", en: "Head of Tech Innovation" },
+    type: { es: "Tiempo Completo", en: "Full-Time" },
+    period: { es: "Sep 2021 - May 2022", en: "Sep 2021 - May 2022" },
+    duration: { es: "9 meses", en: "9 months" },
+    tags: ["IoT", "DevOps", "Team Lead", "IT"],
+  },
+  {
+    company: "Universidad Sergio Arboleda",
+    initial: "U",
+    color: "#ef4444",
+    role: { es: "Desarrollador Digital", en: "Digital Developer" },
+    type: { es: "Tiempo Completo", en: "Full-Time" },
+    period: { es: "Ago 2019 - Mar 2022", en: "Aug 2019 - Mar 2022" },
+    duration: { es: "2 años 8 meses", en: "2 years 8 months" },
+    tags: ["MVC", "Platforms", "University Tools"],
+  },
+  {
+    company: "Paco Web",
+    initial: "P",
+    color: "#06b6d4",
+    role: { es: "Desarrollador Consultor", en: "Consultant Developer" },
+    type: { es: "Freelance", en: "Freelance" },
+    period: { es: "Ene 2015 - Ago 2018", en: "Jan 2015 - Aug 2018" },
+    duration: { es: "3 años 8 meses", en: "3 years 8 months" },
+    tags: ["E-commerce", "LAMP", "Landing Pages"],
+  },
+];
+---
+
+<section id="experience" class="px-4 sm:px-6 py-16 sm:py-20 md:py-24 lg:py-32">
+  <div class="mx-auto max-w-6xl">
+    <AnimatedSection client:load>
+      <div class="mb-10 sm:mb-12 md:mb-16 text-center">
+        <p
+          class="mb-4 text-sm font-medium tracking-wider text-primary-600 dark:text-primary-400 uppercase"
+        >
+          {t("experience.subtitle")}
+        </p>
+        <h2 class="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
+          {t("experience.title")}
+        </h2>
+        <p class="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+          {t("experience.description")}
+        </p>
+      </div>
+    </AnimatedSection>
+
+    <div class="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      {
+        experiences.map((exp, index) => (
+          <ExperienceCard
+            client:visible
+            company={exp.company}
+            initial={exp.initial}
+            color={exp.color}
+            role={exp.role[lang]}
+            type={exp.type[lang]}
+            period={exp.period[lang]}
+            duration={exp.duration[lang]}
+            location={exp.location}
+            tags={exp.tags}
+            index={index}
+          />
+        ))
+      }
+    </div>
+
+    <AnimatedSection client:load delay={0.3}>
+      <div class="mt-10 sm:mt-12 md:mt-16 text-center">
+        <h3 class="mb-4 sm:mb-6 text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
+          {t("experience.media")}
+        </h3>
+        <div class="grid gap-3 sm:gap-4 md:gap-6 md:grid-cols-2">
+          <div class="aspect-video overflow-hidden rounded-xl bg-gray-900">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube-nocookie.com/embed/OToTbcdS7ZA?start=65"
+              title="Video Reference"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+          <a
+            href="http://laud.udistrital.edu.co/noticias/colegio-miguel-%C3%A1ngel-asturias-en-la-universidad-distrital"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex aspect-video items-center justify-center overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 transition-all hover:bg-gray-200 dark:hover:bg-gray-700"
+          >
+            <img
+              src="/portafolio/img/distrital.png"
+              alt="Universidad Distrital Entrevista"
+              class="max-h-full max-w-full object-contain p-6 transition-transform group-hover:scale-105"
+            />
+          </a>
+        </div>
+      </div>
+    </AnimatedSection>
+  </div>
+</section>

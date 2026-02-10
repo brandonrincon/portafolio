@@ -29,13 +29,6 @@ const projects = [
   { src: "/portafolio/img/proyectos/brandonrincon4.jpg", alt: "Proyecto Brandon Rincon 4" },
   { src: "/portafolio/img/proyectos/cl1.jpg", alt: "Proyecto CL1" },
 ];
-
-const businessLines = [
-  { src: "/portafolio/img/web-creasoft.jpg", alt: "Desarrollo Web" },
-  { src: "/portafolio/img/movil-creasoft.jpg", alt: "Desarrollo Movil" },
-  { src: "/portafolio/img/videojuegos-creasoft.jpg", alt: "Videojuegos Unity" },
-  { src: "/portafolio/img/soporte-creasoft.jpg", alt: "Soporte Tecnico" },
-];
 ---
 
 <section id="portfolio" class="bg-gray-50 dark:bg-gray-900 px-4 sm:px-6 py-16 sm:py-20 md:py-24 lg:py-32">
@@ -57,24 +50,6 @@ const businessLines = [
     </AnimatedSection>
 
     <AnimatedSection client:load delay={0.1}>
-      <h3 class="mb-6 sm:mb-8 text-center text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
-        {t("portfolio.business")}
-      </h3>
-      <div class="mb-10 sm:mb-12 md:mb-16 grid gap-3 sm:gap-4 grid-cols-2 lg:grid-cols-4">
-        {
-          businessLines.map((item, index) => (
-            <ProjectCard
-              client:visible
-              src={item.src}
-              alt={item.alt}
-              index={index}
-            />
-          ))
-        }
-      </div>
-    </AnimatedSection>
-
-    <AnimatedSection client:load delay={0.2}>
       <h3 class="mb-6 sm:mb-8 text-center text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
         {t("portfolio.projects")}
       </h3>
