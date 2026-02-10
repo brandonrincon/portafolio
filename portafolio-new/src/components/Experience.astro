@@ -120,15 +120,13 @@ const experiences = [
           {t("experience.media")}
         </h3>
         <div class="grid gap-3 sm:gap-4 md:gap-6 md:grid-cols-2">
-          <div class="aspect-video overflow-hidden rounded-xl bg-gray-900">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube-nocookie.com/embed/OToTbcdS7ZA?start=65"
-              title="Video Reference"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
+          <div class="overflow-hidden rounded-xl">
+            <lite-youtube
+              videoid="OToTbcdS7ZA"
+              videotitle="Video Reference"
+              videoStartAt="65"
+              nocookie
+            ></lite-youtube>
           </div>
           <a
             href="http://laud.udistrital.edu.co/noticias/colegio-miguel-%C3%A1ngel-asturias-en-la-universidad-distrital"

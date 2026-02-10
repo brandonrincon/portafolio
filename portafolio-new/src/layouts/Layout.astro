@@ -90,6 +90,10 @@ const ogImage = new URL("/portafolio/img/org-creasoft.jpg", Astro.site);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
+    <!-- lite-youtube web component -->
+    <script>
+      import "@justinribeiro/lite-youtube";
+    </script>
   </head>
   <body class="antialiased bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
     <DotBackground client:load />
